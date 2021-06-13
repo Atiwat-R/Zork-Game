@@ -3,7 +3,8 @@ package io.muic.zork.enemy;
 import java.awt.*;
 
 public enum EnemyType {
-    SKELETON(Skeleton.class, 50, 10);
+    SKELETON(Skeleton.class, 50, 10),
+    DREAD_WORM(DreadWorm.class, 40, 20);
 
 
     private Class enemyClass;

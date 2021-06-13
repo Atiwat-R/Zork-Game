@@ -1,0 +1,3 @@
+My own additions
+- Factory method for Enemy.
+- Singleton for Player class
