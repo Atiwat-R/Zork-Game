@@ -4,22 +4,21 @@ import io.muic.zork.Game;
 
 import java.util.List;
 
-public class ExitCommand implements Command {
-
+public class AttackWithCommand implements Command{
 
     @Override
     public int numArgs() {
-        return 0;
+        return 1;
     }
 
     @Override
     public String getCommandString() {
-        return "exit";
+        return "attack with";
     }
 
     @Override
     public void execute(Game game, List<String> args) {
-        game.getOutput().println("Exited");
-        game.exit();
+        game.getOutput().println("attack with");
     }
+
 }

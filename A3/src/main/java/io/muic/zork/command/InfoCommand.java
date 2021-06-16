@@ -4,8 +4,7 @@ import io.muic.zork.Game;
 
 import java.util.List;
 
-public class ExitCommand implements Command {
-
+public class InfoCommand implements Command {
 
     @Override
     public int numArgs() {
@@ -14,12 +13,11 @@ public class ExitCommand implements Command {
 
     @Override
     public String getCommandString() {
-        return "exit";
+        return "info";
     }
 
     @Override
     public void execute(Game game, List<String> args) {
-        game.getOutput().println("Exited");
-        game.exit();
+        game.getOutput().println("Game Stats");
     }
 }

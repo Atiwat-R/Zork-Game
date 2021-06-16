@@ -1,6 +1,7 @@
 package io.muic.zork;
 
 import io.muic.zork.command.Command;
+import io.muic.zork.command.CommandFactory;
 
 import java.util.*;
 
@@ -22,7 +23,7 @@ public class CommandParser {
 
     // From a String input, return a list of either [command] or [command, arguments]
     public List<String> parse(String stringInput) {
-        String clearedInput = stringInput.trim();
+        String clearedInput = stringInput.trim().toLowerCase();
         String cmd = matchInputCommand(clearedInput);
 
         // If input command is invalid

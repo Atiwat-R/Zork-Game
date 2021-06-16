@@ -12,10 +12,10 @@ public class Main {
 
     public static void main(String[] args) {
         Game game = new Game();
-//        game.run();
+        game.run();
 
-        Enemy aa = EnemyFactory.createEnemy(EnemyType.DREAD_WORM);
-        Item bb = ItemFactory.createItem(ItemType.LONGSWORD);
-        System.out.println(bb.getAttackMod());
+//        Enemy aa = EnemyFactory.createEnemy(EnemyType.DREAD_WORM);
+//        Item bb = ItemFactory.createItem(ItemType.LONGSWORD);
+//        System.out.println(bb.getAttackMod());
     }
 }

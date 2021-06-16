@@ -11,6 +11,7 @@ public abstract class Item {
         this.hpMod = hpMod;
     }
 
+    public abstract String getItemString();
 
     // Getters
     public int getAttackMod() {

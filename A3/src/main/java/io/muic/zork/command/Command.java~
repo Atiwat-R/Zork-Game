@@ -14,7 +14,7 @@ public interface Command {
     /**
      * Return the String representation of the Command
      */
-    String getCommandString();
+    String getCommand();
 
     /**
      * Executes the command

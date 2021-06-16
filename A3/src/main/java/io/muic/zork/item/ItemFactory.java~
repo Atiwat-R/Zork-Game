@@ -26,7 +26,6 @@ public class ItemFactory {
         for (Class<? extends Item> itemClass: REGISTERED_ITEM) {
             try {
                 Item item = itemClass.getDeclaredConstructor().newInstance();
-//                item.initialize(itemType.getHpMod(), itemType.getAttackMod()); ???
                 ITEM_MAP.put(item.getItemString(), item);
             } catch (InstantiationException e) {
                 e.printStackTrace();
