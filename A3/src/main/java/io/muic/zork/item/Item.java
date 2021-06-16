@@ -6,15 +6,20 @@ public abstract class Item {
     private int attackMod;
     private int hpMod;
 
+    /**
+     * Return String representation of the item. Very useful for parser.
+     * Must be in lowercase.
+     * @return
+     */
+    public abstract String getItemString();
+
     public void initialize(int hpMod, int attackMod) {
         this.attackMod = attackMod;
         this.hpMod = hpMod;
     }
 
-    public abstract String getItemString();
-
     // Getters
-    public int getAttackMod() {
+    public int getAttackMod() { //TODO: can be overridden for special weapon effects?
         return attackMod;
     }
     public int getHpMod() {

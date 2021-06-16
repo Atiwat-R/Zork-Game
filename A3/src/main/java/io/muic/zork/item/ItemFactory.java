@@ -16,17 +16,19 @@ import java.util.stream.Collectors;
 
 public class ItemFactory {
 
-    private static final List< Class<? extends Item> > REGISTERED_ITEM = Arrays.asList(
-            Longsword.class
+    private static final List< ItemType > REGISTERED_ITEM = Arrays.asList(
+            ItemType.LONGSWORD,
+            ItemType.BATTLEAXE
     );
 
     private static final Map<String, Item> ITEM_MAP = new HashMap<>();
 
     static {{
-        for (Class<? extends Item> itemClass: REGISTERED_ITEM) {
+        for (ItemType itemType: REGISTERED_ITEM) {
             try {
-                Item item = itemClass.getDeclaredConstructor().newInstance();
-//                item.initialize(itemType.getHpMod(), itemType.getAttackMod()); ???
+                Item item = (Item) itemType.getItemClass().getDeclaredConstructor().newInstance(); //TODO: Dis gonna work? lmao
+                //Item item = itemClass.getDeclaredConstructor().newInstance();
+                item.initialize(itemType.getHpMod(), itemType.getAttackMod());
                 ITEM_MAP.put(item.getItemString(), item);
             } catch (InstantiationException e) {
                 e.printStackTrace();
@@ -40,9 +42,13 @@ public class ItemFactory {
         }
     }}
 
-
-    public static Item get(String item) {
-        return ITEM_MAP.get(item);
+    /**
+     * From the String name of an item, return Item
+     * @param item
+     * @return
+     */
+    public static Item getItem(String item) {
+        return ITEM_MAP.get(item.trim().toLowerCase());
     }
 
     public static List<String> getAllItem() {
