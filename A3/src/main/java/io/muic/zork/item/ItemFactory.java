@@ -1,12 +1,5 @@
 package io.muic.zork.item;
 
-import io.muic.zork.command.AttackWithCommand;
-import io.muic.zork.command.Command;
-import io.muic.zork.command.ExitCommand;
-import io.muic.zork.command.InfoCommand;
-import io.muic.zork.enemy.Enemy;
-import io.muic.zork.enemy.EnemyType;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,11 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
+
 public class ItemFactory {
 
     private static final List< ItemType > REGISTERED_ITEM = Arrays.asList(
-            ItemType.LONGSWORD,
-            ItemType.BATTLEAXE
+            ItemType.values()
     );
 
     private static final Map<String, Item> ITEM_MAP = new HashMap<>();

@@ -2,6 +2,7 @@ package io.muic.zork.command;
 
 import io.muic.zork.Game;
 
+import java.io.IOException;
 import java.util.*;
 
 public interface Command {
@@ -19,6 +20,6 @@ public interface Command {
     /**
      * Executes the command
      */
-    void execute(Game game, List<String> args);
+    void execute(Game game, List<String> args) throws IOException;
 
 }

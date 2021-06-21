@@ -7,6 +7,11 @@ package io.muic.zork.enemy;
  */
 public class DreadWorm extends Enemy {
 
+    @Override
+    public String getEnemyString() {
+        return "dreadworm";
+    }
+
     // Extra percent
 //    @Override
 //    public int retaliate() {

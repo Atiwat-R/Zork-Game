@@ -1,9 +1,10 @@
 package io.muic.zork.item;
 
 // As it goes currently, this provides easier way to create new items, but be less useful in parsing
+// EDIT: Combined both.
 public enum ItemType {
     LONGSWORD(Longsword.class, 10, 5),
-    BATTLEAXE(Battleaxe.class, 15, 3);
+    BATTLEAXE(Battleaxe.class, 25, 3);
 
 
     private Class itemClass;

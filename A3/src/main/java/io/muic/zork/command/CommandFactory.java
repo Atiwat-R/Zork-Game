@@ -4,17 +4,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import io.muic.zork.command.AttackWithCommand;
-import io.muic.zork.command.Command;
-import io.muic.zork.command.ExitCommand;
-import io.muic.zork.command.InfoCommand;
+
 
 public class CommandFactory {
 
     private static final List< Class<? extends Command> > REGISTERED_COMMAND = Arrays.asList(
             ExitCommand.class,
             InfoCommand.class,
-            AttackWithCommand.class
+            AttackWithCommand.class,
+            PlayCommand.class
     );
 
     private static final Map<String, Command> COMMAND_MAP = new HashMap<>();

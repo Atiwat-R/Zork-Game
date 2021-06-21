@@ -8,4 +8,9 @@ package io.muic.zork.enemy;
 public class Skeleton extends Enemy {
 
 
+    @Override
+    public String getEnemyString() {
+        return "skeleton";
+    }
+
 }

@@ -7,6 +7,18 @@ public abstract class Enemy {
     private int hp;
     private int attackPower;
 
+    /**
+     * Return String representation of the enemy. Very useful for GameMap.
+     * Must be in lowercase.
+     * @return
+     */
+    public abstract String getEnemyString();
+
+    /**
+     * Initialize enemy's basic parameters upon creation.
+     * @param maxHP
+     * @param attackPower
+     */
     public void initialize(int maxHP, int attackPower) {
         alive = true;
         this.maxHP = maxHP;
@@ -21,7 +33,7 @@ public abstract class Enemy {
      * @param amount
      * @return
      */
-    public void calculateNewHP(int amount) { //TODO: Override this method to give overheal passives to some enemy
+    public void calculateNewHP(int amount) { //TODO: Override this method to give overheal passives (heal over maxHP) to some enemy
         hp = hp - amount;
         if (hp < 0) alive = false;
         else if (hp > maxHP) hp = maxHP;
@@ -36,14 +48,16 @@ public abstract class Enemy {
         return attackPower;
     }
 
+    /**
+     * Return status of the enemy.
+     * @return
+     */
     public boolean isAlive() {
         return alive;
     }
 
     // Getters
-    public int getMaxHP() {
-        return maxHP;
-    }
+    public int getMaxHP() { return maxHP; }
     public int getHp() {
         return hp;
     }

@@ -13,6 +13,11 @@ public abstract class Item {
      */
     public abstract String getItemString();
 
+    /**
+     * Initialize item's basic parameters upon creation.
+     * @param hpMod
+     * @param attackMod
+     */
     public void initialize(int hpMod, int attackMod) {
         this.attackMod = attackMod;
         this.hpMod = hpMod;

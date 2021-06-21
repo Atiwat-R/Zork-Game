@@ -3,21 +3,24 @@ package io.muic.zork;
 import io.muic.zork.command.Command;
 import io.muic.zork.command.CommandFactory;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Game {
 
     private GameOutput output = new GameOutput();
     private CommandParser commandParser = new CommandParser();
     private Player player = Player.getInstance();
+    private GameMap gameMap;
+    private boolean startScreen = true;
 
 
 
-
-
-    public void run() {
+    public void run() throws IOException {
         while(true) {
+            // Take user's input
             Scanner scan = new Scanner(System.in);
             System.out.print("> ");
             String input = scan.nextLine();
@@ -28,27 +31,40 @@ public class Game {
             Command command = CommandFactory.get(allwords.get(0));
             command.execute(this, allwords.subList(1, allwords.size()));
 
-            System.out.println(allwords);
+
+//            System.out.println(allwords);
 //            output.println(input);
         }
 
     }
 
 
+    // Other utilities
+    public void switchStartScreen() {
+        startScreen = !startScreen;
+    }
+
+
+
+
+    // Command methods
     public void exit() {
         System.exit(0);
     }
 
 
 
-
     // Getters
-
+    public boolean isStartScreen() {
+        return startScreen;
+    }
     public GameOutput getOutput() {
         return output;
     }
 
 
     // Setters
-
+    public void setGameMap(GameMap gameMap) {
+        this.gameMap = gameMap;
+    }
 }

@@ -4,9 +4,12 @@ import io.muic.zork.item.Item;
 
 public class Player {
 
-    private int maxHP; // Not final, can be adjusted with hpMod
+    // Basic variables
+    private int maxHP;
     private int hp;
     private int attackPower;
+    private int pRow;
+    private int pCol;
     private Item itemSlot;
     //TODO: private Inventory inventory;
 
