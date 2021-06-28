@@ -44,13 +44,21 @@ public class Game {
         startScreen = !startScreen;
     }
 
+    public void gameOver() throws IOException {
+        System.out.println("The player has been defeated!");
+        System.out.println("GAME OVER");
 
+        Command quitter = CommandFactory.get("quit");
+        quitter.execute(this, null);
+    }
 
 
     // Command methods
     public void exit() {
         System.exit(0);
     }
+
+
 
 
 

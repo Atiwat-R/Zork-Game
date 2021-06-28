@@ -57,6 +57,9 @@ public class GoCommand implements Command {
         if (game.getGameMap().isValidCoord(newRow, newCol)) {
             System.out.printf("Walking %s...\n\n", moveTo);
             game.getPlayer().setPlayerPosition(newRow, newCol);
+
+            // Print the Room we've arrived in, for convenience
+            game.getGameMap().printContentAtRoom(newRow, newCol);
         }
         else {
             System.out.println("!!! Invalid Direction !!!");

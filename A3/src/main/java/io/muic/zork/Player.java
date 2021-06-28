@@ -10,6 +10,7 @@ public class Player {
     private int attackPower;
     private int pRow;
     private int pCol;
+    private boolean alive;
     private Item itemSlot;
     private Inventory inventory;
 
@@ -18,10 +19,19 @@ public class Player {
         this.maxHP = 100;
         this.hp = this.maxHP;
         this.attackPower = 20;
+        this.alive = true;
         this.itemSlot = null;
         this.inventory = new Inventory();
         this.setPlayerPosition(pRow, pCol);
     }
+
+    // Player utilities
+    public void takeDamage(int amount) { //TODO: Override this method to give overheal passives (heal over maxHP) to some enemy
+        hp = hp - amount;
+        if (hp < 0) alive = false;
+        else if (hp > maxHP) hp = maxHP;
+    }
+
 
     // Equip the given Item. Stat modifier from the gear is also applied here.
     public void equipItem(Item item) {
@@ -81,6 +91,9 @@ public class Player {
     }
     public int getpCol() {
         return pCol;
+    }
+    public boolean isAlive() {
+        return alive;
     }
     public Item getItemSlot() {
         return itemSlot;

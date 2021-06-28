@@ -16,6 +16,17 @@ public class Inventory {
     }
 
     // Inventory operations
+
+    /**
+     * Return item from the inventory, matched by its string name.
+     * @param itemString
+     * @return
+     */
+    public Item getItem(String itemString) {
+        return inventory.get(itemString.trim().toLowerCase());
+    }
+
+
     /**
      * Add item into inventory
      * @param item item to be added
@@ -32,6 +43,7 @@ public class Inventory {
         }
         else { // Item exists, add it to inventory
             inventory.put(item.getItemString(), item);
+            System.out.printf("Obtained %s\n", item.getItemString());
             return true;
         }
     }
@@ -58,6 +70,7 @@ public class Inventory {
             return false;
         }
         else {
+            System.out.printf("Dropped %s\n", removedItem.getItemString());
             return true;
         }
     }

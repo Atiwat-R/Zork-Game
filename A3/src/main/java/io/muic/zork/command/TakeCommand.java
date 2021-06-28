@@ -20,6 +20,11 @@ public class TakeCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) throws IOException {
+        // This command is only available at Gameplay
+        if (game.isStartScreen()) {
+            System.out.println("!!! Only avalable during Gameplay !!!");
+            return;
+        }
         int pRow = game.getPlayer().getpRow();
         int pCol = game.getPlayer().getpCol();
         Room currentRoom = game.getGameMap().getRoomAt(pRow, pCol); // Get current room the player is in
@@ -39,8 +44,6 @@ public class TakeCommand implements Command {
             currentRoom.setItem(null);
         }
 
-        // Operation successful
-        System.out.printf("Obtained %s\n", roomItem.getItemString());
     }
 
 

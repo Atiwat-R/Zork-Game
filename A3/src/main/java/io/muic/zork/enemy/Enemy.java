@@ -28,6 +28,10 @@ public abstract class Enemy {
         this.attackPower = attackPower;
     }
 
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
     /**
      * Calculate new hp after it took damage or got healed.
      * If amount is positive, it damages the entity. Die if hp reaches 0.
@@ -35,7 +39,7 @@ public abstract class Enemy {
      * @param amount
      * @return
      */
-    public void calculateNewHP(int amount) { //TODO: Override this method to give overheal passives (heal over maxHP) to some enemy
+    public void takeDamage(int amount) { //TODO: Override this method to give overheal passives (heal over maxHP) to some enemy
         hp = hp - amount;
         if (hp < 0) alive = false;
         else if (hp > maxHP) hp = maxHP;

@@ -49,9 +49,17 @@ public class Room {
         this(openDoor, null, null);
     }
 
-
-    public void removeDeadEnemy() {
-        if (!enemy.isAlive()) this.enemy = null;
+    /**
+     * If this Room's enemy is now a mangled corpse (!alive) it removes the enemy.
+     * @return true if enemy is removed, false if it is not removed
+     */
+    public boolean removeDeadEnemy() {
+        if (!enemy.isAlive()) {
+            System.out.printf("%s was defeated!\n", enemy.getEnemyString());
+            this.enemy = null;
+            return true;
+        }
+        return false;
     }
 
     public void printRoomContent() {
