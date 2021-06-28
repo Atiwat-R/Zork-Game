@@ -45,7 +45,7 @@ public class Game {
     }
 
     public void gameOver() throws IOException {
-        System.out.println("The player has been defeated!");
+        System.out.println("\nThe player has been defeated!");
         System.out.println("GAME OVER");
 
         Command quitter = CommandFactory.get("quit");

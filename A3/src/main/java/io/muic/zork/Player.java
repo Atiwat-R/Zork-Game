@@ -28,7 +28,7 @@ public class Player {
     // Player utilities
     public void takeDamage(int amount) { //TODO: Override this method to give overheal passives (heal over maxHP) to some enemy
         hp = hp - amount;
-        if (hp < 0) alive = false;
+        if (hp <= 0) alive = false;
         else if (hp > maxHP) hp = maxHP;
     }
 

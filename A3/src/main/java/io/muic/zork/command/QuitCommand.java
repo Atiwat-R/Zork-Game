@@ -28,7 +28,7 @@ public class QuitCommand implements Command {
             game.setGameMap(null);
             game.setPlayer(null);
 
-            System.out.println("Returning to Start Screen...\n");
+            System.out.println("\nReturning to Start Screen...");
             game.switchStartScreen(); // Switch to Start Screen
         }
         else {

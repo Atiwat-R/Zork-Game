@@ -40,10 +40,9 @@ public class EnemyFactory {
      * @param enemy
      * @return
      */
-    public static Enemy createEnemy(String enemy) {
-//        Enemy original = ENEMY_MAP.get(enemy.trim().toLowerCase());
-//        return (Enemy) original.clone();
-        return ENEMY_MAP.get(enemy.trim().toLowerCase());
+    public static Enemy createEnemy(String enemy) throws CloneNotSupportedException {
+        Enemy original = ENEMY_MAP.get(enemy.trim().toLowerCase());
+        return (Enemy) original.clone();
     }
 
     public static List<String> getAllEnemy() {

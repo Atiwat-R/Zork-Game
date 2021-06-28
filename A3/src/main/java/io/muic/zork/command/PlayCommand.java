@@ -51,7 +51,7 @@ public class PlayCommand implements Command {
                 Player player = new Player(gameMap.getpStartRow(), gameMap.getpStartCol());
                 game.setPlayer(player);
             }
-            catch (FileNotFoundException e) {
+            catch (FileNotFoundException | CloneNotSupportedException e) {
                 System.out.println("!!! No such map found !!!");
             }
         }

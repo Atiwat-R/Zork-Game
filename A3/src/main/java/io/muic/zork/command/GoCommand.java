@@ -58,6 +58,9 @@ public class GoCommand implements Command {
             System.out.printf("Walking %s...\n\n", moveTo);
             game.getPlayer().setPlayerPosition(newRow, newCol);
 
+            // As per instructions, player heal after each walk
+            game.getPlayer().takeDamage(-20); // -20 for heal 20 hp
+
             // Print the Room we've arrived in, for convenience
             game.getGameMap().printContentAtRoom(newRow, newCol);
         }

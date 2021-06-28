@@ -23,7 +23,7 @@ public class GameMap {
      * @param path
      * @throws IOException
      */
-    public GameMap(String path) throws IOException {
+    public GameMap(String path) throws IOException, CloneNotSupportedException {
         // Read from file specified by path
         File file = new File(path);
         FileReader fr = new FileReader(file);   //reads the file
@@ -133,7 +133,7 @@ public class GameMap {
 
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CloneNotSupportedException {
 //        String path = "C:\\Users\\Administrator.1LIZRQUYRIVXOVB\\Desktop\\MUIC\\Trimester VI\\Software Construction\\A3\\src\\main\\resources\\map1.txt";
         String path = "src\\main\\resources\\map1.txt";
         GameMap map1 = new GameMap(path);
