@@ -15,6 +15,8 @@ public class GameMap {
     private List< List<Room> > gameMap;
     private int mapRow;
     private int mapCol;
+    private int pStartRow;
+    private int pStartCol;
 
     /**
      * Constructor. Given specifications in a file, it creates a map
@@ -30,8 +32,8 @@ public class GameMap {
         // First 4 lines are map dimensions and starting point
         mapRow = Integer.parseInt(br.readLine());
         mapCol = Integer.parseInt(br.readLine());
-        int pstartRow = Integer.parseInt(br.readLine());
-        int pstartCol = Integer.parseInt(br.readLine());
+        pStartRow = Integer.parseInt(br.readLine());
+        pStartCol = Integer.parseInt(br.readLine());
 
         // Start reading the rest of the file and convert them into 2D List of Rooms
         this.gameMap = new ArrayList<>();
@@ -48,8 +50,8 @@ public class GameMap {
                 String enemyStr = br.readLine();
                 String itemStr = br.readLine();
                 // Convert enemy and item's string representation to its class instance
-                if (!enemyStr.equals("∅")) enemy = EnemyFactory.getEnemy(enemyStr);
-                if (!itemStr.equals("∅")) item = ItemFactory.getItem(itemStr);
+                if (!enemyStr.equals("∅")) enemy = EnemyFactory.createEnemy(enemyStr);
+                if (!itemStr.equals("∅")) item = ItemFactory.createItem(itemStr);
                 // Once we have Enemy and Item, create Room and add it into mapVert
                 Room room = new Room(openDoor, enemy, item);
                 mapVert.add(room);
@@ -59,6 +61,35 @@ public class GameMap {
         fr.close();    //closes the stream and release the resources
 
     }
+
+    // Functioning utilities
+
+    /**
+     * Get the Room at the specified coordinate
+     * @param row
+     * @param col
+     * @return
+     */
+    public Room getRoomAt(int row, int col) {
+        return this.gameMap.get(row).get(col);
+    }
+
+    /**
+     * Returns true if, based on the dimensions our map have,
+     * the coordinate is valid. (not out of bounds, etc.)
+     * @param row
+     * @param col
+     * @return
+     */
+    public boolean isValidCoord(int row, int col) {
+        if (row < 0 || row >= mapRow) return false;
+        if (col < 0 || col >= mapCol) return false;
+        return true;
+    }
+
+
+
+    // Printing utilities
 
     /**
      * Print content of all Rooms in this map column by column.
@@ -73,6 +104,33 @@ public class GameMap {
         }
         System.out.println(cnt);
     }
+
+    public void printContentAtRoom(int row, int col) {
+        System.out.println("ROOM INFO:");
+        this.gameMap.get(row).get(col).printRoomContent();
+    }
+
+
+    // Getters
+
+    public int getMapRow() {
+        return mapRow;
+    }
+
+    public int getMapCol() {
+        return mapCol;
+    }
+
+    public int getpStartRow() {
+        return pStartRow;
+    }
+
+    public int getpStartCol() {
+        return pStartCol;
+    }
+
+
+
 
 
     public static void main(String[] args) throws IOException {

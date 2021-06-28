@@ -5,20 +5,22 @@ public abstract class Item {
     // Attack power modifier and HP modifier
     private int attackMod;
     private int hpMod;
+    private String stringName;
 
     /**
      * Return String representation of the item. Very useful for parser.
      * Must be in lowercase.
      * @return
      */
-    public abstract String getItemString();
+    public String getItemString() {return stringName;}
 
     /**
      * Initialize item's basic parameters upon creation.
      * @param hpMod
      * @param attackMod
      */
-    public void initialize(int hpMod, int attackMod) {
+    public void initialize(String stringName, int hpMod, int attackMod) {
+        this.stringName = stringName;
         this.attackMod = attackMod;
         this.hpMod = hpMod;
     }

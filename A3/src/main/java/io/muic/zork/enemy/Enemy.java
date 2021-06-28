@@ -6,21 +6,23 @@ public abstract class Enemy {
     private int maxHP;
     private int hp;
     private int attackPower;
+    private String stringName;
 
     /**
      * Return String representation of the enemy. Very useful for GameMap.
      * Must be in lowercase.
      * @return
      */
-    public abstract String getEnemyString();
+    public String getEnemyString() {return stringName;}
 
     /**
      * Initialize enemy's basic parameters upon creation.
      * @param maxHP
      * @param attackPower
      */
-    public void initialize(int maxHP, int attackPower) {
+    public void initialize(String stringName, int maxHP, int attackPower) {
         alive = true;
+        this.stringName = stringName;
         this.maxHP = maxHP;
         this.hp = maxHP;
         this.attackPower = attackPower;

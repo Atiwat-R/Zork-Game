@@ -2,6 +2,7 @@ package io.muic.zork.command;
 
 import io.muic.zork.Game;
 import io.muic.zork.GameMap;
+import io.muic.zork.Player;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,10 +20,18 @@ public class PlayCommand implements Command {
         return "play";
     }
 
+    /**
+     * This function basically starts up the whole gameplay.
+     * It loads the map from the input and constructs a GameMap for Game.
+     * It also initialized new player with position according to the chosen map.
+     * @param game
+     * @param args
+     * @throws IOException
+     */
     @Override
     public void execute(Game game, List<String> args) throws IOException {
         String mapName = args.get(0);
-        System.out.printf("Entering %s...", mapName);
+        System.out.printf("Entering %s...\n\n", mapName);
 
         // From args, create a path to the map file
         StringBuffer sr = new StringBuffer();
@@ -31,11 +40,16 @@ public class PlayCommand implements Command {
         sr.append(".txt");
         String path = sr.toString(); // Finalized path
 
-        // Start map
+        // With the path ready, we now starts the map and other aspects of the game
         if (game.isStartScreen()) {
             try {
-                game.setGameMap(new GameMap(path)); // Set the new map using path
+                GameMap gameMap = new GameMap(path);
+                game.setGameMap(gameMap); // Set the new map using path
                 game.switchStartScreen(); // Once map is decided, it is no longer startScreen
+
+                // Create new player and set them on the map's indicated starting position
+                Player player = new Player(gameMap.getpStartRow(), gameMap.getpStartCol());
+                game.setPlayer(player);
             }
             catch (FileNotFoundException e) {
                 System.out.println("!!! No such map found !!!");

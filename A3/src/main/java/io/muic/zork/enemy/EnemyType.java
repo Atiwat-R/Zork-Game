@@ -3,19 +3,20 @@ package io.muic.zork.enemy;
 import java.awt.*;
 
 public enum EnemyType {
-    SKELETON(Skeleton.class, 50, 10),
-    DREAD_WORM(DreadWorm.class, 40, 20),
-    AGAMEMNON(Agamemnon.class, 1000, 50);
+    SKELETON(Skeleton.class, "skeleton", 50, 10),
+    DREAD_WORM(DreadWorm.class, "dreadworm", 40, 20),
+    AGAMEMNON(Agamemnon.class, "agamemnon",1000, 50);
 
 
     private Class enemyClass;
+    private String stringName; //TODO: Using this, you can make it so that the enemy's String name is declared here instead of having to manually Override it again at its class. But should you?
     private int maxHP;
     private int attackPower;
-//     private String stringName; //TODO: Using this, you can make it so that the enemy's String name is declared here instead of having to manually Override it again at its class. But should you?
 
     // Constructor
-    EnemyType(Class enemyClass, int maxHP, int attackPower) {
+    EnemyType(Class enemyClass, String stringName, int maxHP, int attackPower) {
         this.enemyClass = enemyClass;
+        this.stringName = stringName;
         this.maxHP = maxHP;
         this.attackPower = attackPower;
     }
@@ -30,7 +31,9 @@ public enum EnemyType {
     public int getAttackPower() {
         return attackPower;
     }
-
+    public String getStringName() {
+        return stringName;
+    }
 }
 
 

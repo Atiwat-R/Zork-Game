@@ -12,7 +12,7 @@ public class Game {
 
     private GameOutput output = new GameOutput();
     private CommandParser commandParser = new CommandParser();
-    private Player player = Player.getInstance();
+    private Player player;
     private GameMap gameMap;
     private boolean startScreen = true;
 
@@ -61,10 +61,18 @@ public class Game {
     public GameOutput getOutput() {
         return output;
     }
-
+    public Player getPlayer() {
+        return player;
+    }
+    public GameMap getGameMap() {
+        return gameMap;
+    }
 
     // Setters
     public void setGameMap(GameMap gameMap) {
         this.gameMap = gameMap;
+    }
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }

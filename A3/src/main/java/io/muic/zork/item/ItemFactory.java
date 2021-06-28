@@ -22,7 +22,7 @@ public class ItemFactory {
             try {
                 Item item = (Item) itemType.getItemClass().getDeclaredConstructor().newInstance(); //TODO: Dis gonna work? lmao
                 //Item item = itemClass.getDeclaredConstructor().newInstance();
-                item.initialize(itemType.getHpMod(), itemType.getAttackMod());
+                item.initialize(itemType.getStringName(), itemType.getHpMod(), itemType.getAttackMod());
                 ITEM_MAP.put(item.getItemString(), item);
             } catch (InstantiationException e) {
                 e.printStackTrace();
@@ -41,7 +41,7 @@ public class ItemFactory {
      * @param item
      * @return
      */
-    public static Item getItem(String item) {
+    public static Item createItem(String item) {
         return ITEM_MAP.get(item.trim().toLowerCase());
     }
 

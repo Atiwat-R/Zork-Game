@@ -18,6 +18,18 @@ public class InfoCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-        game.getOutput().println("Game Stats");
+        // This command is only available at Gameplay
+        if (game.isStartScreen()) {
+            System.out.println("!!! Only avalable during Gameplay !!!");
+            return;
+        }
+        // Print Player info
+        if (game.getPlayer() != null) {
+            game.getPlayer().printCurrentStatus();
+        }
+        // Print Room content
+        if (game.getGameMap() != null) {
+            game.getGameMap().printContentAtRoom(game.getPlayer().getpRow(), game.getPlayer().getpCol());
+        }
     }
 }

@@ -7,8 +7,5 @@ package io.muic.zork.enemy;
  */
 public class Agamemnon extends Enemy {
 
-    @Override
-    public String getEnemyString() {
-        return "agamemnon";
-    }
+
 }

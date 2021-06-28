@@ -20,7 +20,7 @@ public class EnemyFactory {
         for (EnemyType enemyType: REGISTERED_ENEMY) {
             try {
                 Enemy enemy = (Enemy) enemyType.getEnemyClass().getDeclaredConstructor().newInstance();
-                enemy.initialize(enemyType.getMaxHP(), enemyType.getAttackPower());
+                enemy.initialize(enemyType.getStringName(), enemyType.getMaxHP(), enemyType.getAttackPower());
                 ENEMY_MAP.put(enemy.getEnemyString(), enemy);
             } catch (InstantiationException e) {
                 e.printStackTrace();
@@ -39,7 +39,7 @@ public class EnemyFactory {
      * @param enemy
      * @return
      */
-    public static Enemy getEnemy(String enemy) {
+    public static Enemy createEnemy(String enemy) {
         return ENEMY_MAP.get(enemy.trim().toLowerCase());
     }
 
